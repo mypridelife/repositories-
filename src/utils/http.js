@@ -1,8 +1,3 @@
-/**
- * Created by superman on 17/2/16.
- * http配置
- */
-
 import axios from 'axios'
 import store from '@/store/store'
 import router from '@/router/router'

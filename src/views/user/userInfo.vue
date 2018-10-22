@@ -1,21 +1,22 @@
 <template>
   <div class="page">
-    <panel :header="title" :list="vuxList" type="1"/>
+    <panel :header="title" :list="vuxList" type="1" />
   </div>
 </template>
 
 <script>
 import api from '@/api/api'
+import * as types from '@/store/mutation-types'
+
 export default {
   data() {
     return {
       msg: 'Repositories：',
       title: '',
-      list: [],
       vuxList: []
     }
   },
-  created() {
+  mounted() {
     this.getRepository()
   },
 
@@ -24,7 +25,7 @@ export default {
       const params = {
         sort: 'updated'
       }
-      this.axios.get(api.repo_list, params)
+      this.axios.get(api.repoList, params)
         .then(response => {
           this.list = response.data
           console.log(this.list)
@@ -44,7 +45,7 @@ export default {
               listTem.url = this.list[i].html_url// 链接
               this.vuxList.push(listTem)
             }
-            this.$store.commit('handleTitle', this.list[0].owner.login)
+            this.$store.commit(types.TITLE, this.list[0].owner.login)
           })
         })
     }

@@ -1,10 +1,7 @@
 <template>
   <div class="page">
     <group>
-      <x-input
-        v-model="authToken"
-        title="Your AuthToken"
-        type="password"/>
+      <x-input v-model="authToken" title="Your AuthToken" type="password" />
     </group>
     <br>
     <x-button type="primary" @click.native="handleLogin">登录</x-button>
@@ -13,6 +10,7 @@
 </template>
 
 <script>
+import * as types from '@/store/mutation-types'
 export default {
   data() {
     return {
@@ -21,12 +19,12 @@ export default {
     }
   },
   mounted() {
-    this.$store.commit('handleTitle', 'Login')
+    this.$store.commit(types.TITLE, 'Login')
   },
   methods: {
     handleLogin() {
       if (this.authToken) {
-        this.$store.commit('handleLogin', this.authToken)
+        this.$store.commit(types.LOGIN, this.authToken)
         // const redirect = decodeURIComponent(this.$route.query.redirect || '/')
         this.$router.replace({
           path: 'userInfo'

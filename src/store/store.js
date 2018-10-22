@@ -1,7 +1,6 @@
-/**
- */
 import Vuex from 'vuex'
 import Vue from 'vue'
+import * as types from '@/store/mutation-types'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -11,15 +10,15 @@ export default new Vuex.Store({
     title: ''
   },
   mutations: {
-    handleLogin: (state, data) => {
+    [types.LOGIN]: (state, data) => {
       localStorage.token = data
       state.token = data
     },
-    handleLogout: state => {
+    [types.LOGOUT]: state => {
       localStorage.removeItem('token')
       state.token = null
     },
-    handleTitle: (state, data) => {
+    [types.TITLE]: (state, data) => {
       localStorage.title = data
       state.title = data
     }

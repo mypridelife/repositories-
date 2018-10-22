@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <x-button type="primary" @click.native="handleLogin">开始</x-button>
+    <x-button type="primary" @click.native="handleStart">开始</x-button>
   </div>
 </template>
 
@@ -12,8 +12,8 @@ export default {
     }
   },
   methods: {
-    handleLogin() {
-      this.$router.push('/login')
+    handleStart() {
+      this.$router.push('/userInfo')
     }
   }
 }

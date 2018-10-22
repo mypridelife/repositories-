@@ -1,6 +1,8 @@
 # your-repositories
 
-> A Vue.js project
+前后端分离使用 Token 登录解决方案
+
+> 技术栈：vue+vuex+vux+axios
 
 ## Build Setup
 

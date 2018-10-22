@@ -13,6 +13,8 @@
 
 <script>
 import { mapState } from 'vuex'
+import * as types from '@/store/mutation-types'
+
 export default {
   name: 'App',
   computed: mapState({
@@ -21,9 +23,9 @@ export default {
   }),
   methods: {
     handleLogout() {
-      this.$store.commit('handleLogout')
+      this.$store.commit(types.LOGOUT)
       this.$router.push({
-        path: '/login'
+        path: '/'
       })
     }
   }
