@@ -22,10 +22,7 @@ export default {
 
   methods: {
     getRepository() {
-      const params = {
-        sort: 'updated'
-      }
-      this.axios.get(api.repoList, params)
+      this.axios.get(api.repoList)
         .then(response => {
           this.list = response.data
           console.log(this.list)
