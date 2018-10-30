@@ -19,3 +19,15 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
+
+## 封装一个组件
+
+安装 countup.js
+
+```
+$ npm install countup.js
+$ npm run dev
+```
+
+组件位置：@/components/CountTo/index.vue
+使用：@/views/demo/demo-count.vue
