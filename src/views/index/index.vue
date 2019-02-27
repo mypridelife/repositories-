@@ -1,6 +1,7 @@
 <template>
   <div class="page">
     <x-button type="primary" @click.native="handleStart">开始</x-button>
+    <x-button type="primary" @click.native="handleDemo">练习-封装一个组件</x-button>
   </div>
 </template>
 
@@ -14,6 +15,9 @@ export default {
   methods: {
     handleStart() {
       this.$router.push('/userInfo')
+    },
+    handleDemo() {
+      this.$router.push('/demo-count')
     }
   }
 }

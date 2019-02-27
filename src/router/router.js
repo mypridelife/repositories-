@@ -4,22 +4,18 @@ import Router from 'vue-router'
 import store from '@/store/store'
 import * as types from '@/store/mutation-types'
 
-import login from '@/views/login/login'
-import userInfo from '@/views/user/userInfo'
-import index from '@/views/index/index'
-
 Vue.use(Router)
 
 const routes = [
   {
     path: '/',
     name: 'index', // 该路由项不需要权限校验
-    component: index
+    component: () => import('@/views/index/index')
   },
   {
     path: '/login',
     name: 'login', // 该路由项不需要权限校验
-    component: login
+    component: () => import('@/views/login/login')
   },
   {
     path: '/userInfo',
@@ -27,7 +23,12 @@ const routes = [
     meta: {
       requireAuth: true // 该路由项需要权限校验
     },
-    component: userInfo
+    component: () => import('@/views/user/userInfo')
+  },
+  {
+    path: '/demo-count',
+    name: 'Demo', // 该路由项不需要权限校验
+    component: () => import('@/views/demo/demo-count')
   }
 ]
 
